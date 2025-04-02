@@ -1,10 +1,10 @@
-
+/* EJERCICIO 1 PARTE 2
 #define F_CPU 16000000UL  
 #include <avr/io.h>  
 #include <util/delay.h>  
 
 int main(void) {   
-    DDRD |= 0xFC;  // Configura PD2 a PD7 como salidas (PD0 como entrada si es necesario)  
+    DDRD |= 0xFC;   
 
     while(1) {  
         // **FASE 1 
@@ -25,4 +25,26 @@ int main(void) {
          
     }  
 }
+*/ 
+//EJERCICIO 1 PARTE 1
+#define F_CPU 16000000UL  
+#include <avr/io.h>  
+#include <util/delay.h>  
 
+int main(void) {  
+    DDRD |= 0xE0; 
+
+    while(1) {  
+        // *Fase 1: Enciende VERDE (D5)*
+        PORTD = 0x20;   
+        _delay_ms(3000);    
+
+        // *Fase 2: Enciende AMARILLO (D6)*
+        PORTD = 0x40;   
+        _delay_ms(3000);    
+
+        // *Fase 3: Enciende ROJO (D7)*
+        PORTD = 0x80;   
+        _delay_ms(3000);  
+    }  
+}
